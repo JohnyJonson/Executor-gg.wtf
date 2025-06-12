@@ -1,0 +1,20 @@
+   html
+   body {
+    display: flex;
+    
+   background-image: url("");
+   }
+   .scriptbutton {
+    background-color: #425540;
+    border: none;
+    position: absolute;
+    
+   
+	transition: transform 0.5s;
+   }
+.scriptbutton:hover {
+   transform: scale(1.4);
+    box-shadow: inset 250px 0 0 0 #63e110;
+    border-radius: 30px;
+ 
+}
