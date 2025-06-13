@@ -26,6 +26,15 @@
       box-shadow: 0 4px 20px rgba(0,0,0,0.3);
       animation: fadeSlideIn 1s ease forwards;
     }
+.logo {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 120px;
+  height: auto;
+  z-index: 1000;
+  filter: drop-shadow(2px 2px 5px black);
+}
 
     .button {
       background-color: #6c757d;
@@ -97,6 +106,8 @@
   </style>
 </head>
 <body>
+  <img src="vxpeLogo.png" alt="vxpe.gg logo" class="logo">
+
   <div class="container">
     <button class="button pulse" onclick="window.location.href='https://github.com/JohnyJonson/Executor-gg.wtf/releases'">
       Download Executor
