@@ -1,16 +1,73 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ChatScript</title>
-    <link rel="stylesheet" href="style.css">
- 
+  <meta charset="UTF-8">
+  <title>Executor.wtf</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: url('https://images.unsplash.com/photo-1608136693277-2c9185fda6d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: white;
+    }
+
+    .container {
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+
+    .button {
+      background-color: #6c757d;
+      border: none;
+      color: white;
+      padding: 15px 30px;
+      font-size: 16px;
+      border-radius: 8px;
+      margin: 10px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .button:hover {
+      background-color: #5a6268;
+    }
+
+    #features {
+      margin-top: 20px;
+      font-size: 20px;
+      display: none;
+      animation: fadeIn 0.5s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
 </head>
 <body>
-    <button class="scriptbutton" onclick="location.href='https://github.com/JohnyJonson/Executor-gg.wtf/releases'">Get executor</button>
+  <div class="container">
+    <button class="button" onclick="window.location.href='https://github.com/JohnyJonson/Executor-gg.wtf/releases'">
+      Download Executor
+    </button>
+    <button class="button" onclick="toggleFeatures()">Features</button>
+    <div id="features">Powerful!</div>
+  </div>
+
+  <script>
+    function toggleFeatures() {
+      const featureBox = document.getElementById('features');
+      featureBox.style.display = featureBox.style.display === 'none' ? 'block' : 'none';
+    }
+  </script>
 </body>
 </html>
