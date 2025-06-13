@@ -30,10 +30,15 @@
   position: fixed;
   top: 20px;
   right: 20px;
-  width: 120px;
+  width: 180px; /* Increased size */
   height: auto;
   z-index: 1000;
-  filter: drop-shadow(2px 2px 5px black);
+  transition: transform 0.3s ease;
+  filter: drop-shadow(3px 3px 6px black);
+}
+
+.logo:hover {
+  transform: scale(1.1);
 }
 
     .button {
@@ -107,6 +112,9 @@
 </head>
 <body>
   <img src="vxpeLogo.png" alt="vxpe.gg logo" class="logo">
+<a href="https://johnyjonson.github.io/lol-2.com" target="_blank">
+  <img src="vxpeLogo.png" alt="vxpe.gg logo" class="logo">
+</a>
 
   <div class="container">
     <button class="button pulse" onclick="window.location.href='https://github.com/JohnyJonson/Executor-gg.wtf/releases'">
