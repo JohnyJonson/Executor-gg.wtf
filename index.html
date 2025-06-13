@@ -17,6 +17,13 @@
       color: white;
       overflow: hidden;
     }
+#key-container input {
+  transition: box-shadow 0.3s;
+}
+#key-container input:focus {
+  outline: none;
+  box-shadow: 0 0 6px rgba(255,255,255,0.6);
+}
 
     .container {
       text-align: center;
@@ -60,6 +67,20 @@
       transform: scale(1.08) rotate(-1deg);
       box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
     }
+#k label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+#k input {
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: none;
+  margin-right: 10px;
+  width: 200px;
+}
 
     .button:active::after {
       content: '';
@@ -126,6 +147,19 @@
     </button>
     <button class="button" onclick="toggleFeatures()">Features</button>
     <div id="features">Releasing Soon!</div>
+    
+ <button class="button" id="private-btn" onclick="x()">Get Private Config</button>
+
+<div id="k" style="display:none;margin-top:20px;">
+  <label for="kI">Key System:</label>
+  <input type="text" id="kI" placeholder="Enter your key">
+  <button class="button" onclick="y()">Submit</button>
+</div>
+
+<a id="dL" href="private-config.txt" download style="display:none;"></a>
+
+</div>
+
   </div>
 
   <script>
@@ -138,6 +172,27 @@
         featureBox.style.display = 'none';
       }
     }
+  
+  
+  }
+
+
   </script>
+  <script>
+  function x() {
+    document.getElementById('k').style.display = 'block';
+  }
+
+  function y() {
+    const u = document.getElementById('kI').value.trim();
+    const encoded = atob('S0VZX1BVQkxJQy5QUklWQVRFNA=='); //
+    if (u === encoded) {
+      document.getElementById('dL').click();
+    } else {
+      alert('Invalid key.');
+    }
+  }
+</script>
+
 </body>
 </html>
