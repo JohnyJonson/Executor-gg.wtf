@@ -2,19 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Executor.wtf</title>
+  <title>Executor GG</title>
   <style>
     body {
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;
-      background: url('https://cdn.discordapp.com/attachments/1379127219552522283/1383122157185269810/rain.jpg?ex=684da463&is=684c52e3&hm=2d0032bcef5a66d08e4428c950d401ce9c73dadd05798a09aed28b4da8c41de8&') no-repeat center center fixed;
+      background: url('https://wallpapercave.com/wp/wp11639818.jpg') no-repeat center center fixed;
       background-size: cover;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
       color: white;
+      overflow: hidden;
     }
 
     .container {
@@ -23,6 +24,7 @@
       padding: 30px;
       border-radius: 12px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      animation: fadeSlideIn 1s ease forwards;
     }
 
     .button {
@@ -31,32 +33,72 @@
       color: white;
       padding: 15px 30px;
       font-size: 16px;
-      border-radius: 8px;
+      border-radius: 10px;
       margin: 10px;
       cursor: pointer;
-      transition: background 0.3s;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease, background 0.3s, box-shadow 0.3s;
     }
 
     .button:hover {
       background-color: #5a6268;
+      transform: scale(1.08) rotate(-1deg);
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    }
+
+    .button:active::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 200%;
+      height: 200%;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      animation: ripple 0.6s linear;
+      pointer-events: none;
+    }
+
+    @keyframes ripple {
+      to {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0;
+      }
+    }
+
+    .pulse {
+      animation: pulse 2s infinite;
     }
 
     #features {
       margin-top: 20px;
       font-size: 20px;
       display: none;
-      animation: fadeIn 0.5s ease-in;
+      animation: fadeInUp 0.5s ease-in forwards;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+    @keyframes fadeSlideIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <button class="button" onclick="window.location.href='https://github.com/JohnyJonson/Executor-gg.wtf/releases'">
+    <button class="button pulse" onclick="window.location.href='https://github.com/JohnyJonson/Executor-gg.wtf/releases'">
       Download Executor
     </button>
     <button class="button" onclick="toggleFeatures()">Features</button>
@@ -66,7 +108,12 @@
   <script>
     function toggleFeatures() {
       const featureBox = document.getElementById('features');
-      featureBox.style.display = featureBox.style.display === 'none' ? 'block' : 'none';
+      if (featureBox.style.display === 'none' || featureBox.style.display === '') {
+        featureBox.style.display = 'block';
+        featureBox.style.animation = 'fadeInUp 0.5s ease-in forwards';
+      } else {
+        featureBox.style.display = 'none';
+      }
     }
   </script>
 </body>
